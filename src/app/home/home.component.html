@@ -1,0 +1,8 @@
+<h1 class="m-3">Welcome!</h1>
+<div class="container">
+    <div class="row">
+        @for (product of allProducts; track product.id) {
+            <app-product-card [product]="product" class="col-3 mb-5"></app-product-card>
+        }
+    </div>
+</div>
