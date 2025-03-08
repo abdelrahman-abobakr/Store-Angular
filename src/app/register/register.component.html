@@ -1,1 +1,68 @@
-<h1 class="mt-3 ms-3">Login Component</h1>
+<form [formGroup]="registerForm" (ngSubmit)="handleRegister()">
+  <div class="mb-3">
+    <label for="emailInput" class="form-label">Name</label>
+    <input type="text" class="form-control" id="nameInput" aria-describedby="nameHelp" formControlName="name">
+    @if(formControls['name'].invalid && formControls['name'].touched){
+      <div id="nameHelp" class="form-text text-danger">
+          @if(formControls['name'].hasError('required')){
+              <span>Required Field</span>
+          }@else if (formControls['name'].hasError('minlength')) {
+              <span>Minimum value is 2 characters</span>                    
+          }
+      </div>
+    } 
+  </div>
+    <div class="mb-3">
+      <label for="emailInput" class="form-label">Email </label>
+      <input type="email" class="form-control" id="emailInput" aria-describedby="emailHelp" formControlName="email">
+      @if(formControls['email'].invalid && formControls['email'].touched){
+        <div id="emailHelp" class="form-text text-danger">
+            @if(formControls['email'].hasError('required')){
+                <span>Required Field</span>
+            }@else if (formControls['email'].hasError('email')) {
+                <span>Invalid email format</span>                    
+            }
+        </div>
+      } 
+    </div>
+    <div class="mb-3">
+      <label for="emailInput" class="form-label">Username</label>
+      <input type="text" class="form-control" id="usernameInput" aria-describedby="usernameHelp" formControlName="username">
+      @if(formControls['username'].invalid && formControls['username'].touched){
+        <div id="emailHelp" class="form-text text-danger">
+            @if(formControls['username'].hasError('required')){
+                <span>Required Field</span>
+            }@else if (formControls['username'].hasError('pattern')) {
+                <span>Username must not contain spaces</span>                    
+            }
+        </div>
+      }     
+    </div>
+    <div class="mb-3">
+      <label for="passwordInput" class="form-label">Password</label>
+      <input type="password" class="form-control" id="passwordInput" aria-describedby="passwordHelp" formControlName="password">
+      @if(formControls['password'].invalid && formControls['password'].touched){
+        <div id="passwordHelp" class="form-text text-danger">
+            @if(formControls['password'].hasError('required')){
+                <span>Required Field</span>
+            }
+        </div>
+      } 
+    </div>
+
+    <div class="mb-3">
+      <label for="confirmPasswordInput" class="form-label">confirm Password</label>
+      <input type="password" class="form-control" id="confirmPasswordInput" aria-describedby="pasConfirm" formControlName="confirmPassword">
+      @if(formControls['confirmPassword'].invalid && formControls['confirmPassword'].touched){
+        <div id="pasConfirm" class="form-text text-danger">
+            @if(formControls['confirmPassword'].hasError('required')){
+                <span>Required Field</span>
+            }@else if (formControls['confirmPassword'].hasError('passwordMismatch')) {
+                <span>Password Mismatch</span>                    
+            }
+        </div>
+      }
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
