@@ -17,7 +17,7 @@
                 <div class="card-text mt-3">Shipping : {{product.shippingInformation}}</div>
                 <div class="card-text mt-3 badge bg-danger fs-5">{{product.warrantyInformation}}</div><br>
                 <button class="btn btn-success mt-4">Buy Now</button>
-                <button class="btn btn-secondary ms-2 mt-4">Add To Cart</button>
+                <button class="btn btn-secondary ms-2 mt-4" (click)="addProduct()">Add To Cart</button>
             </div>
             
         </div>

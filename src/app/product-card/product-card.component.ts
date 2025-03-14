@@ -11,12 +11,13 @@ import { Router } from '@angular/router';
 })
 export class ProductCardComponent {
   // router = inject(Router)
+  
   constructor(private router:Router){
 
   }
-@Input() product: any;
+  @Input() product: any;
 
-redirectToProduct(id: number){
-  this.router.navigate(['product-details',id]);
-}
+  redirectToProduct(id: number){
+    this.router.navigate(['product-details',id]);
+  }
 }
